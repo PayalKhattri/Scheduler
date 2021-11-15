@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+
+<head>
+  <div th:replace="head.html"></div>
+</head>
+
+<body>
+<div th:replace="header.html"></div>
+
+<div th:replace="sidebar.html"></div>
+<main id="main" class="main">
+
+
+  <section class="section">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Preferences Form</h5>
+
+        <div th:text="${error}"></div>
+
+        <!-- Multi Columns Form -->
+        <form th:action="@{/preferencesForm}" method="post" class="row g-3" >
+          <div class="col-md-6">
+            <label for="inputName5" class="form-label" >Name</label>
+            <input type="text" name="name" class="form-control" id="inputName5" required>
+            <div class="invalid-feedback">Please, enter name!</div>
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail5" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="inputEmail5" email>
+            <div class="invalid-feedback">Please, enter email!</div>
+          </div>
+          <div class="col-md-6">
+            <legend class="col-form-label">Have you installed Aarogya Setu App?</legend>
+
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="aarogyaSetu" id="gridRadios1" value="1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Yes
+              </label>
+            </div>
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="aarogyaSetu" id="gridRadios2" value="2">
+              <label class="form-check-label" for="gridRadios2">
+                No
+              </label>
+            </div>
+
+          </div>
+
+
+
+          <div class="col-md-6">
+            <legend class="col-form-label">Do you have fever/cough like symptoms?</legend>
+
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="symptoms" id="gridRadios3" value="1" checked>
+              <label class="form-check-label" for="gridRadios3">
+                Yes
+              </label>
+            </div>
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="symptoms" id="gridRadios4" value="2">
+              <label class="form-check-label" for="gridRadios4">
+                No
+              </label>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <legend class="col-form-label">Are you staying in containment zone?</legend>
+
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="containmentZone" id="gridRadios5" value="1" checked>
+              <label class="form-check-label" for="gridRadios5">
+                Yes
+              </label>
+            </div>
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="containmentZone" id="gridRadios6" value="2">
+              <label class="form-check-label" for="gridRadios6">
+                No
+              </label>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <legend class="col-form-label">Have you self-quarantined for 14 days?</legend>
+
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="selfQuarantined" id="gridRadios7" value="1" checked>
+              <label class="form-check-label" for="gridRadios7">
+                Yes
+              </label>
+            </div>
+            <div class="form-check col-md-6">
+              <input class="form-check-input" type="radio" name="selfQuarantined" id="gridRadios8" value="2">
+              <label class="form-check-label" for="gridRadios8">
+                No
+              </label>
+            </div>
+
+          </div>
+
+          <div class="col-md-12">
+            <label for="certificate" class="form-label">Upload Vaccination Certificate</label>
+            <div class="input-group mb-3">
+              <div class="custom-file" id="certificate">
+                <input type="file" class="custom-file-input" id="inputGroupFile02" name="certificate">
+                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <label for="slots" class="form-label">Select date/time slots to attend classes physically</label>
+
+            <div class="card">
+              <div class="card-body">
+                <!-- Default Table -->
+                <table class="table" id="slots">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Slot 1</th>
+                    <th scope="col">Slot 2</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Monday</td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day1" id="d11" value="1">
+                      <label class="form-check-label" for="d11">
+                        9:00 AM to 12:00 PM
+                      </label>
+                    </div></td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day1" id="d12" value="2">
+                      <label class="form-check-label" for="d12">
+                        2:00 PM to 5:00 PM
+                      </label>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Tuesday</td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day2" id="d21" value="1">
+                      <label class="form-check-label" for="d21">
+                        9:00 AM to 12:00 PM
+                      </label>
+                    </div></td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day2" id="d22" value="2">
+                      <label class="form-check-label" for="d22">
+                        2:00 PM to 5:00 PM
+                      </label>
+                    </div></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Wednesday</td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day3" id="d31" value="1">
+                      <label class="form-check-label" for="d31">
+                        9:00 AM to 12:00 PM
+                      </label>
+                    </div></td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day3" id="d32" value="2">
+                      <label class="form-check-label" for="d32">
+                        2:00 PM to 5:00 PM
+                      </label>
+                    </div></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Thursday</td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day4" id="d41" value="1">
+                      <label class="form-check-label" for="d41">
+                        9:00 AM to 12:00 PM
+                      </label>
+                    </div></td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day4" id="d42" value="2">
+                      <label class="form-check-label" for="d42">
+                        2:00 PM to 5:00 PM
+                      </label>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Friday</td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day5" id="d51" value="1">
+                      <label class="form-check-label" for="d51">
+                        9:00 AM to 12:00 PM
+                      </label>
+                    </div></td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day5" id="d52" value="2">
+                      <label class="form-check-label" for="d52">
+                        2:00 PM to 5:00 PM
+                      </label>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Saturday</td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day6" id="d61" value="1">
+                      <label class="form-check-label" for="d61">
+                        9:00 AM to 12:00 PM
+                      </label>
+                    </div></td>
+                    <td><div class="form-check col-md-6">
+                      <input class="form-check-input" type="radio" name="day6" id="d62" value="2">
+                      <label class="form-check-label" for="d62">
+                        2:00 PM to 5:00 PM
+                      </label>
+
+                    </div>
+
+                    </td>
+
+                  </tr>
+
+                  </tbody>
+                </table>
+                <!-- End Default Table Example -->
+              </div>
+            </div>
+          </div>
+
+
+          <!--                            <div class="col-12">-->
+          <!--                                <div class="form-check">-->
+          <!--                                    <input class="form-check-input" type="checkbox" id="gridCheck">-->
+          <!--                                    <label class="form-check-label" for="gridCheck">-->
+          <!--                                        Check me out-->
+          <!--                                    </label>-->
+          <!--                                </div>-->
+          <!--                            </div>-->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form><!-- End Multi Columns Form -->
+
+      </div>
+    </div>
+
+
+
+  </section>
+
+</main><!-- End #main -->
+<div th:replace="footer.html"></div>
+</body>
+
+</html>

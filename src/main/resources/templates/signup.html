@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Register</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link th:href="@{/assets2/img/logo.png}" rel="icon">
+    <link th:href="@{/assets2/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link th:href="@{/assets2/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/assets2/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/assets2/vendor/remixicon/remixicon.css}" rel="stylesheet">
+    <link th:href="@{/assets2/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/assets2/vendor/quill/quill.snow.css}" rel="stylesheet">
+    <link th:href="@{/assets2/vendor/quill/quill.bubble.css}" rel="stylesheet">
+    <link th:href="@{/assets2/vendor/simple-datatables/style.css}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link th:href="@{/assets2/css/style.css}" rel="stylesheet">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}">
+    </script>
+
+    <script type="text/javascript">
+
+            $('#accountType').on('change', function() {
+                if ( this.value == '1')
+                    //.....................^.......
+                {
+                    $("#faculty").hide();
+                    $("#student").show();
+                }
+                else  if ( this.value == '2')
+                {
+                    $("#student").hide();
+                    $("#faculty").show();
+                }
+
+            });
+
+
+    </script>
+
+    <!-- =======================================================
+    * Template Name: NiceAdmin - v2.1.0
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<main>
+
+
+    <div class="container">
+
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                        <div class="d-flex justify-content-center py-4">
+                            <a href="home" class="logo d-flex align-items-center w-auto">
+                                <img th:src="@{/assets2/img/logo.png}" alt="">
+                                <span class="d-none d-lg-block">Scheduler</span>
+                            </a>
+                        </div><!-- End Logo -->
+
+                        <div class="card mb-3" >
+
+                            <div class="card-body">
+
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                                    <p class="text-center small">Enter the following details to create account</p>
+                                </div>
+
+                                <div th:if="${param.error}">
+                                    Invalid email and password.
+                                </div>
+                                <div th:if="${param.logout}">
+                                    You have been logged out.
+                                </div>
+
+                                <form id="f" th:action="@{/signup}" method="post" class="row g-3 needs-validation" novalidate>
+
+                                    <div class="col-12">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" name="name" class="form-control" id="name" required>
+                                        <div class="invalid-feedback">Please, enter name!</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">Please enter a valid Email address!</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="col-sm-12 col-form-label">Account Type</label>
+                                        <div class="col-sm-12">
+                                            <select th:id="accountType" name="accountType" class="form-select" aria-label="Default select example">
+                                                <option th:value="1" selected>Student</option>
+                                                <option th:value="2">Faculty</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br/>
+
+                                    <div th:id="student">
+                                        <div class="col-12">
+                                            <label for="roll" class="form-label">Roll Number</label>
+                                            <input type="text" name="roll" class="form-control" id="roll">
+                                            <div class="invalid-feedback">Please enter Roll Number!</div>
+                                        </div>
+                                        <br/>
+
+
+                                        <div class="col-md-12" id="d1">
+                                            <label for="branch" class="form-label">Branch</label>
+                                            <input type="text" name="branch" class="form-control" id="branch">
+                                            <div class="invalid-feedback">Please enter Branch!</div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div th:id="faculty"  style='display:none;'>
+                                        <div class="col-12">
+                                            <label for="position" class="form-label">Position/Title</label>
+                                            <input type="text" name="position" class="form-control" id="position">
+                                            <div class="invalid-feedback">Please enter Position/Title!</div>
+                                        </div>
+                                        <br/>
+
+
+                                        <div class="col-12">
+                                            <label for="department" class="form-label">Department</label>
+                                            <input type="text" name="department" class="form-control" id="department">
+                                            <div class="invalid-feedback">Please enter Department!</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" name="phone" class="form-control" id="phone" pattern="[0-9]{10}" required>
+                                        <div class="invalid-feedback">Please enter Phone Number!</div>
+                                    </div>
+
+
+
+                                    <div class="col-8">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" name="address" class="form-control" id="Address" required>
+                                        <div class="invalid-feedback">Please enter Address!</div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="zip" class="form-label">Zip</label>
+                                        <input type="text" name="zip" class="form-control" id="zip" minlength="6" maxlength="6">
+                                        <div class="invalid-feedback">Please enter Zip!</div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="city" class="form-label">City</label>
+                                        <input type="text" name="city" class="form-control" id="city">
+                                        <div class="invalid-feedback">Please enter City!</div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="state" class="form-label">State</label>
+                                        <input type="text" name="state" class="form-control" id="state">
+                                        <div class="invalid-feedback">Please enter State!</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" required>
+                                        <div class="invalid-feedback">Please enter password!</div>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <input class="btn btn-primary w-100" type="submit" >
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</main><!-- End #main -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script th:src="@{/assets2/vendor/bootstrap/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/assets2/vendor/php-email-form/validate.js}"></script>
+<script th:src="@{/assets2/vendor/quill/quill.min.js}"></script>
+<script th:src="@{/assets2/vendor/tinymce/tinymce.min.js}"></script>
+<script th:src="@{/assets2/vendor/simple-datatables/simple-datatables.js}"></script>
+<script th:src="@{/assets2/vendor/chart.js/chart.min.js}"></script>
+<script th:src="@{/assets2/vendor/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{/assets2/vendor/echarts/echarts.min.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/assets2/js/main.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head><div th:replace="head.html"></div></head>
+
+<body>
+
+<div th:replace="header.html"></div>
+
+<div th:replace="sidebar.html"></div>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Profile</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+        <div class="row">
+            <div class="col-xl-4">
+
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                        <img th:src="@{assets2/img/person-circle.svg}" style="width: 40px; height:60px" alt="Profile" class="rounded-circle">
+                        <h2 th:text="${user.name}"></h2>
+                        <h3 th:text="${user.email}"></h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xl-8">
+
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <!-- Bordered Tabs -->
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                            </li>
+
+
+                        </ul>
+                        <div class="tab-content pt-2">
+
+                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+
+                                <h5 class="card-title">Profile Details</h5>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label ">Name</div>
+                                    <div class="col-lg-9 col-md-8" name="name" th:text="${user.name}"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Email</div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.email}"></div>
+                                </div>
+
+
+                                <div  th:if="${user.accountType==1}">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Roll No.</div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.roll}"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Branch</div>
+                                    <div class="col-lg-9 col-md-8"th:text="${user.branch}"></div>
+                                </div>
+                                </div>
+
+                                <div id="faculty" th:if="${user.accountType==2}">
+                                    <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Position/Title</div>
+                                    <div class="col-lg-9 col-md-8"th:text="${user.position}"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Department</div>
+                                        <div class="col-lg-9 col-md-8"th:text="${user.department}"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Address</div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.address}"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">City</div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.city}"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">State</div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.state}"></div>
+                                </div><div class="row">
+                                <div class="col-lg-3 col-md-4 label">Zip</div>
+                                <div class="col-lg-9 col-md-8" th:text="${user.zip}"></div>
+                            </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.phone}"></div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div><!-- End Bordered Tabs -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<div th:replace="footer.html"></div>
+
+
+
+
+</body>
+
+</html>
