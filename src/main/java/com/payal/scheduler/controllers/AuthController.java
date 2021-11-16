@@ -54,6 +54,7 @@ public class AuthController {
             bindingResult
                     .rejectValue("email", "error.user",
                             "There is already a user registered with the username provided");
+           // modelAndView.addObject("error","There is already a user registered with the email provided");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("signup");
@@ -146,12 +147,15 @@ public class AuthController {
     @RequestMapping(value = {"/roster"}, method = RequestMethod.GET)
     public ModelAndView roster() {
 
+
+      //  List<String> slots=rosterService.getSlots();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         List<Roster> rosters=rosterService.findAll();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user", user);
         modelAndView.addObject("rosters",rosters);
+      //  modelAndView.addObject("slots",slots);
         modelAndView.setViewName("roster");
         return modelAndView;
     }

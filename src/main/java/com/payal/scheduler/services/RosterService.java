@@ -80,6 +80,10 @@ public class RosterService {
     }
 
 
+    public List<String> getSlots(){
+        return slots;
+    }
+
 
     public void helper(PreferencesForm preferencesForm,int index){
         Roster r=rosterRepository.findBySlot(slots.get(index));
@@ -88,10 +92,14 @@ public class RosterService {
             l=new ArrayList<>();
         l.add(preferencesForm);
         r.setBookings(l);
-        rosterRepository.delete(rosterRepository.findBySlot(slots.get(index)));
+//        rosterRepository.delete(rosterRepository.findBySlot(slots.get(index)));
         rosterRepository.save(r);
     }
 
+
+    public Roster findBySlot(String slot){
+        return rosterRepository.findBySlot(slot);
+    }
 
     public void updateRoster(PreferencesForm preferencesForm){
         initialize();

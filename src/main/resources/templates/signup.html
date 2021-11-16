@@ -91,12 +91,7 @@
                                     <p class="text-center small">Enter the following details to create account</p>
                                 </div>
 
-                                <div th:if="${param.error}">
-                                    Invalid email and password.
-                                </div>
-                                <div th:if="${param.logout}">
-                                    You have been logged out.
-                                </div>
+
 
                                 <form id="f" th:action="@{/signup}" method="post" class="row g-3 needs-validation" novalidate>
 
