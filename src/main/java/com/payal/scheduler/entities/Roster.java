@@ -3,23 +3,19 @@ package com.payal.scheduler.entities;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.DateFormat;
+import java.util.*;
 
 @Data
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Roster {
     @Id
     private String id;
-    private List<List<PreferencesForm>> bookings;
+    private List<PreferencesForm> bookings;
+    private String slot;
 
-    public Roster() {
-        bookings=new ArrayList<>(12);
-        for(int i = 0; i < 12; ++i) {
-            bookings.add(new ArrayList<>());
-        }
-    }
 }

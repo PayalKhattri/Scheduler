@@ -3,6 +3,8 @@ package com.payal.scheduler.entities;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
 @Data
 @Getter
 @Setter

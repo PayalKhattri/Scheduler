@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RosterRepository extends MongoRepository<Roster,String> {
+
+    Roster findBySlot(String slot);
 }

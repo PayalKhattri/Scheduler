@@ -2,6 +2,7 @@
 package com.payal.scheduler.controllers;
 
 import com.payal.scheduler.entities.PreferencesForm;
+import com.payal.scheduler.entities.Roster;
 import com.payal.scheduler.entities.User;
 import com.payal.scheduler.services.CustomUserDetailsService;
 import com.payal.scheduler.services.PreferencesFormService;
@@ -14,6 +15,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AuthController {
@@ -76,10 +80,13 @@ public class AuthController {
     @RequestMapping(value = "/preferencesForm", method = RequestMethod.GET)
     public ModelAndView preferencesForm() {
 
+        List<String> dates=preferencesFormService.getThisWeeksDays();
+
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("user", user);
+        modelAndView.addObject("dates", dates);
         modelAndView.setViewName("preferencesForm");
         return modelAndView;
     }
@@ -87,6 +94,7 @@ public class AuthController {
     @RequestMapping(value = "/preferencesForm", method = RequestMethod.POST)
     public ModelAndView preferencesForm(PreferencesForm preferencesForm, BindingResult bindingResult) {
 
+        List<String> dates=preferencesFormService.getThisWeeksDays();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
 
@@ -95,6 +103,7 @@ public class AuthController {
         System.out.println(preferencesFormExists);
         System.out.println(preferencesForm);
         System.out.println(user);
+        modelAndView.addObject("dates", dates);
 
            if(!user.getEmail().equals(preferencesForm.getEmail())){
             bindingResult
@@ -131,6 +140,19 @@ public class AuthController {
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("home");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/roster"}, method = RequestMethod.GET)
+    public ModelAndView roster() {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        List<Roster> rosters=rosterService.findAll();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("rosters",rosters);
+        modelAndView.setViewName("roster");
         return modelAndView;
     }
 

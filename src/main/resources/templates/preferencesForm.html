@@ -138,7 +138,7 @@
                   <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Monday</td>
+                    <td th:text="${dates.get(0)}">Monday</td>
                     <td><div class="form-check col-md-6">
                       <input class="form-check-input" type="radio" name="day1" id="d11" value="1">
                       <label class="form-check-label" for="d11">
@@ -154,7 +154,7 @@
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>Tuesday</td>
+                    <td th:text="${dates.get(1)}">Tuesday</td>
                     <td><div class="form-check col-md-6">
                       <input class="form-check-input" type="radio" name="day2" id="d21" value="1">
                       <label class="form-check-label" for="d21">
@@ -171,7 +171,7 @@
 
                   <tr>
                     <th scope="row">3</th>
-                    <td>Wednesday</td>
+                    <td th:text="${dates.get(2)}">Wednesday</td>
                     <td><div class="form-check col-md-6">
                       <input class="form-check-input" type="radio" name="day3" id="d31" value="1">
                       <label class="form-check-label" for="d31">
@@ -188,7 +188,7 @@
 
                   <tr>
                     <th scope="row">4</th>
-                    <td>Thursday</td>
+                    <td th:text="${dates.get(3)}">Thursday</td>
                     <td><div class="form-check col-md-6">
                       <input class="form-check-input" type="radio" name="day4" id="d41" value="1">
                       <label class="form-check-label" for="d41">
@@ -204,7 +204,7 @@
                   </tr>
                   <tr>
                     <th scope="row">5</th>
-                    <td>Friday</td>
+                    <td th:text="${dates.get(4)}">Friday</td>
                     <td><div class="form-check col-md-6">
                       <input class="form-check-input" type="radio" name="day5" id="d51" value="1">
                       <label class="form-check-label" for="d51">
@@ -220,7 +220,7 @@
                   </tr>
                   <tr>
                     <th scope="row">6</th>
-                    <td>Saturday</td>
+                    <td th:text="${dates.get(5)}">Saturday</td>
                     <td><div class="form-check col-md-6">
                       <input class="form-check-input" type="radio" name="day6" id="d61" value="1">
                       <label class="form-check-label" for="d61">
