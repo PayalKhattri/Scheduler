@@ -12,7 +12,37 @@
 <body>
 <div th:replace="header.html"></div>
 
-<div th:replace="sidebar.html"></div>
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" th:href="dashboard">
+        <i class="bi bi-person"></i>
+        <span>Profile</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+
+    <li class="nav-item" th:if="${user.accountType=='1'}">
+      <a class="nav-link" th:href="preferencesForm">
+        <i class="bi bi-card-list"></i>
+        <span>Preferences Form</span>
+      </a>
+    </li>
+
+    <li class="nav-item" th:if="${user.accountType=='2'}">
+      <a class="nav-link collapsed" th:href="roster">
+        <i class="bi bi-file-earmark"></i>
+        <span>Weekly Roster</span>
+      </a>
+    </li>
+
+
+  </ul>
+
+</aside><!-- End Sidebar-->
 <main id="main" class="main">
 
 
@@ -22,7 +52,7 @@
       <div class="card-body">
         <h5 class="card-title">Preferences Form</h5>
 
-        <div th:text="${error}"></div>
+        <div class="text-center" style="color: red" th:text="${error}"></div>
 
         <!-- Multi Columns Form -->
         <form th:action="@{/preferencesForm}" method="post" class="row g-3" >
@@ -33,14 +63,14 @@
           </div>
           <div class="col-md-6">
             <label for="inputEmail5" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" id="inputEmail5" email>
+            <input type="email" name="email" class="form-control" id="inputEmail5" required>
             <div class="invalid-feedback">Please, enter email!</div>
           </div>
           <div class="col-md-6">
             <legend class="col-form-label">Have you installed Aarogya Setu App?</legend>
 
             <div class="form-check col-md-6">
-              <input class="form-check-input" type="radio" name="aarogyaSetu" id="gridRadios1" value="1" checked>
+              <input class="form-check-input" type="radio" name="aarogyaSetu" id="gridRadios1" value="1">
               <label class="form-check-label" for="gridRadios1">
                 Yes
               </label>
@@ -60,7 +90,7 @@
             <legend class="col-form-label">Do you have fever/cough like symptoms?</legend>
 
             <div class="form-check col-md-6">
-              <input class="form-check-input" type="radio" name="symptoms" id="gridRadios3" value="1" checked>
+              <input class="form-check-input" type="radio" name="symptoms" id="gridRadios3" value="1">
               <label class="form-check-label" for="gridRadios3">
                 Yes
               </label>
@@ -78,7 +108,7 @@
             <legend class="col-form-label">Are you staying in containment zone?</legend>
 
             <div class="form-check col-md-6">
-              <input class="form-check-input" type="radio" name="containmentZone" id="gridRadios5" value="1" checked>
+              <input class="form-check-input" type="radio" name="containmentZone" id="gridRadios5" value="1">
               <label class="form-check-label" for="gridRadios5">
                 Yes
               </label>
@@ -96,7 +126,7 @@
             <legend class="col-form-label">Have you self-quarantined for 14 days?</legend>
 
             <div class="form-check col-md-6">
-              <input class="form-check-input" type="radio" name="selfQuarantined" id="gridRadios7" value="1" checked>
+              <input class="form-check-input" type="radio" name="selfQuarantined" id="gridRadios7" value="1">
               <label class="form-check-label" for="gridRadios7">
                 Yes
               </label>

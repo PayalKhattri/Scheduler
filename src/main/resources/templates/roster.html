@@ -10,8 +10,37 @@
 
 
 <div th:replace="header.html"></div>
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
 
-<div th:replace="sidebar.html"></div>
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" th:href="dashboard">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+
+        <li class="nav-item" th:if="${user.accountType=='1'}">
+            <a class="nav-link collapsed" th:href="preferencesForm">
+                <i class="bi bi-card-list"></i>
+                <span>Preferences Form</span>
+            </a>
+        </li>
+
+        <li class="nav-item" th:if="${user.accountType=='2'}">
+            <a class="nav-link" th:href="roster">
+                <i class="bi bi-file-earmark"></i>
+                <span>Weekly Roster</span>
+            </a>
+        </li>
+
+
+    </ul>
+
+</aside><!-- End Sidebar-->
 
 <main id="main" class="main">
 
@@ -31,9 +60,9 @@
            <ul th:each="roster : ${rosters}" style="list-style-type:none" >
 
 
-             <li th:text="${roster.slot}"></li>
+             <h5 th:text="${roster.slot}"></h5>
              <br/>
-             <table th:if="${roster.bookings}!=null"  class="table" >
+             <table th:if="${roster.bookings}!=null"  class="table table-bordered" >
                <thead>
                <tr>
 
@@ -50,7 +79,7 @@
               </tr>
              </table>
 
-             <p th:if="${roster.bookings}==null" >No entries</p>
+             <p th:if="${roster.bookings}==null" >No Registrations</p>
 
              <br/>
              <br/>

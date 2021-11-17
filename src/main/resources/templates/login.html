@@ -54,7 +54,7 @@
 
                         <div class="d-flex justify-content-center py-4">
                             <a href="home" class="logo d-flex align-items-center w-auto">
-                                <img href="@{/assets2/img/logo.png}" alt="">
+                                <img th:src="@{/assets2/img/logo.png}" alt="">
                                 <span class="d-none d-lg-block">Scheduler</span>
                             </a>
                         </div><!-- End Logo -->
@@ -71,10 +71,10 @@
                                 <form th:action="@{/login}" method="post" class="row g-3 needs-validation" novalidate>
 
 
-                                    <div th:if="${param.error}">
+                                    <div class="text-center" style="color: red" th:if="${param.error}">
                                         Invalid email and password.
                                     </div>
-                                    <div th:if="${param.logout}">
+                                    <div class="text-center" style="color: red" th:if="${param.logout}">
                                         You have been logged out.
                                     </div>
 

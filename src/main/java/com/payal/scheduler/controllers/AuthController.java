@@ -53,8 +53,9 @@ public class AuthController {
         if (userExists != null) {
             bindingResult
                     .rejectValue("email", "error.user",
-                            "There is already a user registered with the username provided");
-           // modelAndView.addObject("error","There is already a user registered with the email provided");
+                            "User Already Registered");
+            modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("signup");

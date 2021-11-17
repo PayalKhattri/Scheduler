@@ -32,28 +32,6 @@
     <!-- Template Main CSS File -->
     <link th:href="@{/assets2/css/style.css}" rel="stylesheet">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}">
-    </script>
-
-    <script type="text/javascript">
-
-            $('#accountType').on('change', function() {
-                if ( this.value == '1')
-                    //.....................^.......
-                {
-                    $("#faculty").hide();
-                    $("#student").show();
-                }
-                else  if ( this.value == '2')
-                {
-                    $("#student").hide();
-                    $("#faculty").show();
-                }
-
-            });
-
-
-    </script>
 
     <!-- =======================================================
     * Template Name: NiceAdmin - v2.1.0
@@ -61,11 +39,40 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+
+    <script type="text/javascript">
+
+        function ShowHideDiv() {
+            var accountType = document.getElementById("accountType");
+            var faculty = document.getElementById("faculty");
+            var student = document.getElementById("student");
+
+
+            if (accountType.value == "1")
+                //.....................^.......
+            {
+                faculty.style.display = "none";
+                student.style.display = "block";
+            } else{
+                student.style.display = "none";
+                faculty.style.display = "block";
+            }
+        }
+
+
+
+
+
+    </script>
+
 </head>
 
 <body>
 
 <main>
+
+
+
 
 
     <div class="container">
@@ -92,7 +99,7 @@
                                 </div>
 
 
-
+<div class="text-center" style="color: red" th:text="${error}"></div>
                                 <form id="f" th:action="@{/signup}" method="post" class="row g-3 needs-validation" novalidate>
 
                                     <div class="col-12">
@@ -110,7 +117,7 @@
                                     <div class="col-12">
                                         <label class="col-sm-12 col-form-label">Account Type</label>
                                         <div class="col-sm-12">
-                                            <select th:id="accountType" name="accountType" class="form-select" aria-label="Default select example">
+                                            <select onchange = "ShowHideDiv()" th:id="accountType" name="accountType" class="form-select" aria-label="Default select example">
                                                 <option th:value="1" selected>Student</option>
                                                 <option th:value="2">Faculty</option>
                                             </select>
@@ -136,7 +143,7 @@
 
                                     </div>
 
-                                    <div th:id="faculty"  style='display:none;'>
+                                    <div id="faculty"  style='display:none;'>
                                         <div class="col-12">
                                             <label for="position" class="form-label">Position/Title</label>
                                             <input type="text" name="position" class="form-control" id="position">

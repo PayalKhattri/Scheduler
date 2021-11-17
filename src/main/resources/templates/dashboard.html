@@ -5,13 +5,48 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="default">
-<head><div th:replace="head.html"></div></head>
+<head><div th:replace="head.html"></div>
+
+
+</head>
 
 <body>
 
 <div th:replace="header.html"></div>
 
-<div th:replace="sidebar.html"></div>
+<!--<div th:replace="sidebar.html"></div>-->
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link" th:href="dashboard">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+
+        <li class="nav-item" th:if="${user.accountType=='1'}">
+            <a class="nav-link collapsed" th:href="preferencesForm">
+                <i class="bi bi-card-list"></i>
+                <span>Preferences Form</span>
+            </a>
+        </li>
+
+        <li class="nav-item" th:if="${user.accountType=='2'}">
+            <a class="nav-link collapsed" th:href="roster">
+                <i class="bi bi-file-earmark"></i>
+                <span>Weekly Roster</span>
+            </a>
+        </li>
+
+
+    </ul>
+
+</aside><!-- End Sidebar-->
 
 <main id="main" class="main">
 
@@ -64,7 +99,7 @@
                                 </div>
 
 
-                                <div  th:if="${user.accountType==1}">
+                                <div  th:if="${user.accountType=='1'}">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Roll No.</div>
                                     <div class="col-lg-9 col-md-8" th:text="${user.roll}"></div>
@@ -76,7 +111,7 @@
                                 </div>
                                 </div>
 
-                                <div id="faculty" th:if="${user.accountType==2}">
+                                <div id="faculty" th:if="${user.accountType=='2'}">
                                     <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Position/Title</div>
                                     <div class="col-lg-9 col-md-8"th:text="${user.position}"></div>

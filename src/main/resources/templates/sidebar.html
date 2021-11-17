@@ -4,26 +4,31 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " th:href="dashboard">
+            <a class="nav-link s1" th:href="dashboard">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
 
+        <div th:if="${user.accountType=='1'}">
         <li class="nav-item">
-            <a class="nav-link collapsed" th:href="preferencesForm">
+            <a class="nav-link s2" th:href="preferencesForm">
                 <i class="bi bi-card-list"></i>
                 <span>Preferences Form</span>
             </a>
         </li>
+        </div>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" th:href="roster">
+
+        <div th:if="${user.accountType=='1'}">
+        <li class="nav-item" th:if="${user.accountType=='2'}">
+            <a class="nav-link s3" th:href="roster">
                 <i class="bi bi-file-earmark"></i>
                 <span>Weekly Roster</span>
             </a>
         </li>
+        </div>
 
 
     </ul>
