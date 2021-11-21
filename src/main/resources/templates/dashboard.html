@@ -90,58 +90,58 @@
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">Name</div>
-                                    <div class="col-lg-9 col-md-8" name="name" th:text="${user.name}"></div>
+                                    <div class="col-lg-9 col-md-8" name="name" th:text="${user.name}">---</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Email</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${user.email}"></div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.email}">---</div>
                                 </div>
 
 
                                 <div  th:if="${user.accountType=='1'}">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Roll No.</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${user.roll}"></div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.roll}">---</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Branch</div>
-                                    <div class="col-lg-9 col-md-8"th:text="${user.branch}"></div>
+                                    <div class="col-lg-9 col-md-8"th:text="${user.branch}">---</div>
                                 </div>
                                 </div>
 
                                 <div id="faculty" th:if="${user.accountType=='2'}">
                                     <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Position/Title</div>
-                                    <div class="col-lg-9 col-md-8"th:text="${user.position}"></div>
+                                    <div class="col-lg-9 col-md-8"th:text="${user.position}">---</div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Department</div>
-                                        <div class="col-lg-9 col-md-8"th:text="${user.department}"></div>
+                                        <div class="col-lg-9 col-md-8"th:text="${user.department}">---</div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Address</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${user.address}"></div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.address}">---</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">City</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${user.city}"></div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.city}">---</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">State</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${user.state}"></div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.state}">---</div>
                                 </div><div class="row">
-                                <div class="col-lg-3 col-md-4 label">Zip</div>
-                                <div class="col-lg-9 col-md-8" th:text="${user.zip}"></div>
+                                <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                <div class="col-lg-9 col-md-8" th:text="${user.zip}">---</div>
                             </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${user.phone}"></div>
+                                    <div class="col-lg-9 col-md-8" th:text="${user.phone}">---</div>
                                 </div>
 
 

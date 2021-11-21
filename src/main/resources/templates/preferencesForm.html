@@ -55,7 +55,7 @@
         <div class="text-center" style="color: red" th:text="${error}"></div>
 
         <!-- Multi Columns Form -->
-        <form th:action="@{/preferencesForm}" method="post" class="row g-3" >
+        <form th:action="@{/preferencesForm}" method="post" class="row g-3">
           <div class="col-md-6">
             <label for="inputName5" class="form-label" >Name</label>
             <input type="text" name="name" class="form-control" id="inputName5" required>
@@ -140,15 +140,19 @@
 
           </div>
 
-          <div class="col-md-12">
-            <label for="certificate" class="form-label">Upload Vaccination Certificate</label>
-            <div class="input-group mb-3">
-              <div class="custom-file" id="certificate">
-                <input type="file" class="custom-file-input" id="inputGroupFile02" name="certificate">
-                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-              </div>
-            </div>
-          </div>
+
+<!--          <div class="col-md-12" >-->
+<!--            <label for="certificate" class="form-label">Upload Vaccination Certificate</label>-->
+<!--            <div class="input-group mb-3">-->
+<!--              <div class="custom-file" id="certificate">-->
+<!--                <input type="file" class="custom-file-input" id="fileUploadInput" name="certificate">-->
+<!--                <label id="chooseFile" class="custom-file-label" for="fileUploadInput">Choose file</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+
 
           <div class="col-md-12">
             <label for="slots" class="form-label">Select date/time slots to attend classes physically</label>

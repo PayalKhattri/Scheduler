@@ -75,6 +75,7 @@
               <tr th:each="r : ${roster.bookings}">
                <td th:text="${r.name}"></td>
                 <td th:text="${r.email}"></td>
+<!--                  <td>  <img alt="sample" th:src="*{'data:image/png;base64,'+r.certificate.image}" /></td>-->
 
               </tr>
              </table>

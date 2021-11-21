@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -27,6 +29,8 @@ public class AuthController {
 
     @Autowired
     private PreferencesFormService preferencesFormService;
+
+
 
     @Autowired
     private RosterService rosterService;
@@ -96,6 +100,10 @@ public class AuthController {
     @RequestMapping(value = "/preferencesForm", method = RequestMethod.POST)
     public ModelAndView preferencesForm(PreferencesForm preferencesForm, BindingResult bindingResult) {
 
+
+
+
+
         List<String> dates=preferencesFormService.getThisWeeksDays();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
@@ -111,7 +119,7 @@ public class AuthController {
             bindingResult
                     .rejectValue("email", "error.invalid",
                             "Submit using registered email address");
-
+               System.out.println("error1");
                modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
         }
 
@@ -119,20 +127,29 @@ public class AuthController {
             bindingResult
                     .rejectValue("email", "error.user",
                             "Form already submitted");
-
+               System.out.println("error2");
                modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
         }
+
+        else if(preferencesFormService.numberOfEntries()==5){
+               bindingResult
+                       .rejectValue("email", "error.user",
+                               "Seats Already Full");
+               System.out.println("error2");
+               modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
+           }
 
 
 
         if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getAllErrors());
             modelAndView.addObject("user", user);
             modelAndView.setViewName("preferencesForm");
         } else {
             preferencesFormService.savePreferencesForm(preferencesForm);
             rosterService.updateRoster(preferencesForm);
             modelAndView.addObject("user", user);
-            modelAndView.setViewName("dashboard");
+            modelAndView.setViewName("upload");
 
         }
         return modelAndView;
@@ -160,5 +177,30 @@ public class AuthController {
         modelAndView.setViewName("roster");
         return modelAndView;
     }
+
+    @RequestMapping(value = {"/upload"}, method = RequestMethod.GET)
+    public ModelAndView upload() {
+
+        ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("upload");
+        return modelAndView;
+    }
+
+//    @RequestMapping(value = {"/upload"}, method = RequestMethod.POST)
+//    public ModelAndView upload(@RequestParam("certificate") String certificate) {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        User user = userService.findUserByEmail(auth.getName());
+//        modelAndView.addObject("user", user);
+//
+//        preferencesFormService.findUserByEmail(user.getEmail()).setCertificate(certificate);
+//  System.out.println(preferencesFormService.findUserByEmail(user.getEmail()).getCertificate());
+//        modelAndView.setViewName("dashboard");
+//        return modelAndView;
+//    }
 
 }

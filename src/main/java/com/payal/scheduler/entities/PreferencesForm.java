@@ -22,6 +22,9 @@ public class PreferencesForm {
     private String containmentZone;
     private String selfQuarantined;
     private String certificate;
+
+
+
     private String day1;
     private String day2;
     private String day3;

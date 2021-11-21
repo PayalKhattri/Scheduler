@@ -58,6 +58,7 @@ public class RosterService {
     public void initialize(){
 
         if(!execute) {
+            rosterRepository.deleteAll();
             List<String> dates = getThisWeeksDays();
 
             for (int i = 0; i < 7; i++) {

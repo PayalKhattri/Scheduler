@@ -21,12 +21,21 @@ public class PreferencesFormService {
     @Autowired
     private PreferencesFormRepository preferencesFormRepository;
 
+
+    public int numberOfEntries(){
+        return preferencesFormRepository.findAll().size();
+    }
+
     public PreferencesForm findUserByEmail(String email) {
         return preferencesFormRepository.findByEmail(email);
     }
 
     public void savePreferencesForm(PreferencesForm preferencesForm){
          preferencesFormRepository.save(preferencesForm);
+    }
+
+    public void deletePreferencesForm(PreferencesForm preferencesForm){
+        preferencesFormRepository.delete(preferencesForm);
     }
 
     public List<String> getThisWeeksDays() {
