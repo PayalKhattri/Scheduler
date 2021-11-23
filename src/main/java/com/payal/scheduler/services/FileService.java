@@ -36,6 +36,9 @@ public class FileService {
     private PreferencesFormService preferencesFormService;
 
     @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
+    @Autowired
     private CustomUserDetailsService userService;
 
     public String addFile(MultipartFile upload) throws IOException {
@@ -51,10 +54,14 @@ public class FileService {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
 
-        PreferencesForm preferencesForm=preferencesFormService.findUserByEmail(user.getEmail());
-       preferencesFormService.deletePreferencesForm(preferencesForm);
-       preferencesForm.setCertificate(fileID.toString());
-       preferencesFormService.savePreferencesForm(preferencesForm);
+//        PreferencesForm preferencesForm=preferencesFormService.findUserByEmail(user.getEmail());
+//       preferencesFormService.deletePreferencesForm(preferencesForm);
+//       preferencesForm.setCertificate(fileID.toString());
+//       preferencesFormService.savePreferencesForm(preferencesForm);
+
+       user.setCertificate(fileID.toString());
+       userService.saveUser(user);
+
 
 
 

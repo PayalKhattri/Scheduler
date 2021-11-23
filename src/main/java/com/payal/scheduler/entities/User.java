@@ -31,6 +31,9 @@ public class User {
     private String city;
     private String state;
     private String password;
+
+    private String certificate;
+
     private boolean enabled;
     @DBRef
     private Set<Role> roles;

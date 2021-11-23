@@ -7,6 +7,18 @@
 
 <head>
     <div th:replace="head.html"></div>
+
+<!--    <script type="text/javascript">-->
+
+<!--        var f=document.getElementById("downloadFile");-->
+
+<!--        function show(){-->
+
+<!--            document.getElementById("downloadFile").style.display="block";-->
+<!--        }-->
+
+
+<!--    </script>-->
 </head>
 
 <body>
@@ -62,12 +74,27 @@
                             <input type="file" name="certificate" id="fileUploadInput" class="file-input" required>
 
                             <button type="submit" class="submit-btn">Upload</button>
+
+
+
                         </form>
                     </div>
 
-                    <div class="file-download">
-                        <div id="downloadFileUrl" name="certificate"></div>
-                    </div>
+                <div class="file-download">
+                    <div id="downloadFileUrl" name="certificate"></div>
+                </div>
+
+
+
+
+
+                    <a href="preferencesForm">
+                        <input type="submit"/>
+                    </a>
+
+
+
+
 
 
             </div>

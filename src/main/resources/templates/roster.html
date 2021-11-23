@@ -68,6 +68,7 @@
 
                  <th scope="col">Name</th>
                  <th scope="col">Email</th>
+                   <th scope="col">View Details</th>
 
                </tr>
                </thead>
@@ -75,7 +76,101 @@
               <tr th:each="r : ${roster.bookings}">
                <td th:text="${r.name}"></td>
                 <td th:text="${r.email}"></td>
+                  <td th:text="${r.certificate}"></td>
 <!--                  <td>  <img alt="sample" th:src="*{'data:image/png;base64,'+r.certificate.image}" /></td>-->
+
+                  <!-- Button trigger modal -->
+
+                  <td>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Click Here
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Student Details</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label ">Name</div>
+                                      <div class="col-lg-9 col-md-8" name="name" th:text="${user.name}">---</div>
+                                  </div>
+
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Email</div>
+                                      <div class="col-lg-9 col-md-8" th:text="${user.email}">---</div>
+                                  </div>
+
+
+                                  <div  th:if="${user.accountType=='1'}">
+                                      <div class="row">
+                                          <div class="col-lg-3 col-md-4 label">Roll No.</div>
+                                          <div class="col-lg-9 col-md-8" th:text="${user.roll}">---</div>
+                                      </div>
+
+                                      <div class="row">
+                                          <div class="col-lg-3 col-md-4 label">Branch</div>
+                                          <div class="col-lg-9 col-md-8"th:text="${user.branch}">---</div>
+                                      </div>
+                                  </div>
+
+                                  <div id="faculty" th:if="${user.accountType=='2'}">
+                                      <div class="row">
+                                          <div class="col-lg-3 col-md-4 label">Position/Title</div>
+                                          <div class="col-lg-9 col-md-8"th:text="${user.position}">---</div>
+                                      </div>
+
+                                      <div class="row">
+                                          <div class="col-lg-3 col-md-4 label">Department</div>
+                                          <div class="col-lg-9 col-md-8"th:text="${user.department}">---</div>
+                                      </div>
+                                  </div>
+
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Address</div>
+                                      <div class="col-lg-9 col-md-8" th:text="${user.address}">---</div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">City</div>
+                                      <div class="col-lg-9 col-md-8" th:text="${user.city}">---</div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">State</div>
+                                      <div class="col-lg-9 col-md-8" th:text="${user.state}">---</div>
+                                  </div><div class="row">
+                                  <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                  <div class="col-lg-9 col-md-8" th:text="${user.zip}">---</div>
+                              </div>
+
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Phone</div>
+                                      <div class="col-lg-9 col-md-8" th:text="${user.phone}">---</div>
+                                  </div>
+
+
+                                  <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Vaccination Certificate</div>
+                                      <div class="col-lg-9 col-md-8" th:text="${r.certificate}">---</div>
+                                      <a th:href="@{'http://localhost:8080/file/download/'+${r.certificate}}" target="_self">Download File</a>
+                                  </div>
+
+
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  </td>
+
+
 
               </tr>
              </table>

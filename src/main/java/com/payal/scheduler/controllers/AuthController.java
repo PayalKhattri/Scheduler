@@ -146,8 +146,13 @@ public class AuthController {
             modelAndView.addObject("user", user);
             modelAndView.setViewName("preferencesForm");
         } else {
+
+            preferencesForm.setCertificate(user.getCertificate());
+
             preferencesFormService.savePreferencesForm(preferencesForm);
             rosterService.updateRoster(preferencesForm);
+
+
             modelAndView.addObject("user", user);
             modelAndView.setViewName("upload");
 
