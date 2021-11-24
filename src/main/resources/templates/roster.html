@@ -76,7 +76,7 @@
               <tr th:each="r : ${roster.bookings}">
                <td th:text="${r.name}"></td>
                 <td th:text="${r.email}"></td>
-                  <td th:text="${r.certificate}"></td>
+<!--                  <td th:text="${r.certificate}"></td>-->
 <!--                  <td>  <img alt="sample" th:src="*{'data:image/png;base64,'+r.certificate.image}" /></td>-->
 
                   <!-- Button trigger modal -->
@@ -153,11 +153,11 @@
                                   </div>
 
 
-                                  <div class="row">
-                                      <div class="col-lg-3 col-md-4 label">Vaccination Certificate</div>
-                                      <div class="col-lg-9 col-md-8" th:text="${r.certificate}">---</div>
-                                      <a th:href="@{'http://localhost:8080/file/download/'+${r.certificate}}" target="_self">Download File</a>
-                                  </div>
+<!--                                  <div class="row">-->
+<!--                                      <div class="col-lg-3 col-md-4 label">Vaccination Certificate</div>-->
+<!--                                      <div class="col-lg-9 col-md-8" th:text="${r.certificate}">-&#45;&#45;</div>-->
+<!--                                      <a th:href="@{'http://localhost:8080/file/download/'+${r.certificate}}" target="_self">Download File</a>-->
+<!--                                  </div>-->
 
 
                               </div>

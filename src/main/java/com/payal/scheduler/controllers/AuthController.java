@@ -131,13 +131,13 @@ public class AuthController {
                modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
         }
 
-        else if(preferencesFormService.numberOfEntries()==5){
-               bindingResult
-                       .rejectValue("email", "error.user",
-                               "Seats Already Full");
-               System.out.println("error2");
-               modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
-           }
+//        else if(preferencesFormService.numberOfEntries()==5){
+//               bindingResult
+//                       .rejectValue("email", "error.user",
+//                               "Seats Already Full");
+//               System.out.println("error2");
+//               modelAndView.addObject("error", bindingResult.getFieldError().getDefaultMessage());
+//           }
 
 
 
