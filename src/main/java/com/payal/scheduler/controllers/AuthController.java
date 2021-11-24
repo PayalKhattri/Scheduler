@@ -154,7 +154,7 @@ public class AuthController {
 
 
             modelAndView.addObject("user", user);
-            modelAndView.setViewName("upload");
+            modelAndView.setViewName("dashboard");
 
         }
         return modelAndView;
