@@ -49,7 +49,7 @@ public class PreferencesFormService {
 
         // 3. set calendars dOW field to the first dOW (last sunday)
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
-
+        cal.add(Calendar.DAY_OF_WEEK, 7);
         for (int i = 0; i < 7; i++) {
             // 4. get some infomation
             String nameOfMonth = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, locale);
