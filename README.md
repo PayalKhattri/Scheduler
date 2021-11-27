@@ -8,7 +8,7 @@ I have followed the agile methodology to build my application. Right from design
 Check out the live demo: [WEBSITE](https://classes-scheduler.herokuapp.com/)
 
 Check out the video demo:
-[VIDEO DEMO](https://docs.google.com/presentation/d/1w5r50zBXy5bNFOR6i8s8783Kk2S-4tVg/edit?usp=sharing&ouid=101606631757309704952&rtpof=true&sd=true)
+[VIDEO DEMO](https://drive.google.com/file/d/15LxiEFV2XjoQwHpijOKG_a_HhyHrh5_S/view?usp=sharing)
 
 Check out the presentation:
 [PRESENTATION](https://docs.google.com/presentation/d/1w5r50zBXy5bNFOR6i8s8783Kk2S-4tVg/edit?usp=sharing&ouid=101606631757309704952&rtpof=true&sd=true)
