@@ -3,7 +3,7 @@ During the pandemic, most of the schools and colleges are having classes in hybr
  
 I have built a Scheduler Application that allows students to submit weekly preferences for attending class in-person or remotely. The tool then assigns available seats to students who want to physically attend class and provides the faculty with a roster of who has been cleared to attend.
 
-I have followed the agile methodology to build my application. Right from designing the prototype to building and deploying my application, I divided everything into sprints of 6 days each which helped me complete the tasks within 3 weeks.
+I have followed the agile methodology to build my application and done continuous integrations. Right from designing the prototype to building and deploying my application, I divided everything into sprints of 6 days each which helped me complete the tasks within 3 weeks.
 
 Check out the live demo: [WEBSITE](https://classes-scheduler.herokuapp.com/)
 
@@ -34,5 +34,7 @@ Build a functional prototype of a platform that gives students an array of digit
 - GitHub
 - Deployment: Heroku
 
+## Configuration
+After cloning this repository, run this Spring Boot Application using Maven. I have connected my application to remote mongodb (spring.data.mongodb.uri=mongodb+srv://payal:payal@scheduler.r4ucj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority). 
 
 
