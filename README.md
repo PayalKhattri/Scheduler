@@ -34,28 +34,5 @@ Build a functional prototype of a platform that gives students an array of digit
 - GitHub
 - Deployment: Heroku
 
-### Installation Guide
-Make sure you have Node.js installed in your system. If not, download it from [here](https://nodejs.org/en/download/).
-
-Clone [the following](https://github.com/PayalKhattri/Scheduler) repo on your local system.
-
-    git clone https://github.com/Ria700/MSteamsClone.git
-
-First go to your project directory in command line [where is your project located ?]
-
-Then in the next step you have to create jar file for that, this can be done as
-
-mvnw package [for WINDOWS OS ] or ./mvnw package [for MAC OS] , this will create jar file for our application.
-    
-jar file is created in the target sub-directory
-
-Now go to target sub directory as jar was created inside of it , i.e cd target
-
-Now run the jar file in there. Use command java -jar name.jar [ name is the name of your created jar file.]
-
-Server Started on Port 8080.
-
-Open browser and goto http://localhost:8080/
-
 
 
